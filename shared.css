@@ -1,0 +1,20 @@
+/* RunByCode — Shared CSS */
+/* Used via <style> embed in each HTML file */
+
+:root {
+  --bg-dark: #0d0d1a;
+  --bg-card: #12122a;
+  --bg-section: #0f0f20;
+  --accent: #ff6b35;
+  --accent-hover: #e85a25;
+  --accent-light: rgba(255,107,53,0.12);
+  --text: #e8e8f0;
+  --text-muted: #9090a8;
+  --border: rgba(255,255,255,0.08);
+  --white: #ffffff;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius: 12px;
+  --radius-sm: 6px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  --max-w: 1200px;
+}
