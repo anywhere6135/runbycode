@@ -18,20 +18,20 @@
   </style>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg: #0d0d1a; --bg2: #12122a; --bg3: #0f0f20; --accent: #ff6b35; --accent2: #e85a25; --accent-faint: rgba(255,107,53,0.10); --txt: #e8e8f0; --muted: #9090a8; --border: rgba(255,255,255,0.08); --white: #fff; --r: 12px; --max: 1200px; }
+    :root { --bg: #ffffff; --bg2: #f8f9fb; --bg3: #f1f4f8; --accent: #2563eb; --accent2: #1d4ed8; --accent-faint: rgba(37,99,235,0.08); --txt: #0f172a; --muted: #64748b; --border: #e2e8f0; --white: #fff; --r: 12px; --max: 1200px; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--txt); line-height: 1.6; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,26,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--txt); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; }
     .nav-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .nav-logo { font-size: 1.25rem; font-weight: 800; color: var(--accent); text-decoration: none; }
+    .nav-logo { font-size: 1.2rem; font-weight: 800; color: #0f172a; text-decoration: none; letter-spacing: -0.5px; }
     .nav-logo:hover { opacity: 0.85; }
     .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 8px 14px; border-radius: 8px; transition: all .2s; }
-    .nav-links a:hover { color: var(--txt); background: var(--accent-faint); }
-    .nav-cta { background: var(--accent); color: var(--white) !important; padding: 10px 20px !important; border-radius: 8px !important; font-weight: 600 !important; }
+    .nav-links a:hover { color: var(--txt); background: var(--bg2); }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: 10px 20px !important; border-radius: 8px !important; font-weight: 600 !important; }
     .nav-cta:hover { background: var(--accent2) !important; }
     .dropdown { position: relative; }
-    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 8px; min-width: 240px; box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+    .dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 0; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 8px; min-width: 240px; box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
     .dropdown.open .dropdown-menu { display: block; }
     .dropdown-menu a { display: block; color: var(--muted); text-decoration: none; font-size: 0.875rem; padding: 10px 14px; border-radius: 8px; transition: all .2s; }
     .dropdown-menu a:hover { color: var(--txt); background: var(--accent-faint); }
@@ -39,7 +39,7 @@
     .hamburger span { display: block; width: 22px; height: 2px; background: var(--txt); margin: 5px 0; }
     @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: fixed; top: 68px; left: 0; right: 0; background: var(--bg); padding: 24px; border-bottom: 1px solid var(--border); } .nav-links.open { display: flex; } .hamburger { display: block; } .dropdown-menu { position: static; box-shadow: none; border: none; padding: 4px 0 4px 12px; } .dropdown.open .dropdown-menu { display: block; } }
     /* Page Header */
-    .page-header { padding: 80px 24px 64px; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse at 20% 50%, rgba(255,107,53,0.07) 0%, transparent 60%); }
+    .page-header { padding: 80px 24px 64px; border-bottom: 1px solid var(--border); background: radial-gradient(ellipse at 20% 50%, rgba(37,99,235,0.05) 0%, transparent 60%); }
     .page-header .container { max-width: var(--max); margin: 0 auto; }
     .breadcrumb { color: var(--muted); font-size: 0.8rem; margin-bottom: 20px; }
     .breadcrumb a { color: var(--muted); text-decoration: none; } .breadcrumb a:hover { color: var(--accent); }
@@ -54,11 +54,11 @@
     /* Filter tabs */
     .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
     .filter-tab { background: var(--bg2); border: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; font-weight: 600; padding: 8px 18px; border-radius: 100px; cursor: pointer; transition: all .2s; }
-    .filter-tab.active, .filter-tab:hover { background: var(--accent-faint); border-color: rgba(255,107,53,0.3); color: var(--accent); }
+    .filter-tab.active, .filter-tab:hover { background: var(--accent-faint); border-color: rgba(37,99,235,0.2); color: var(--accent); }
     /* Project cards */
     .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all .25s; }
-    .project-card:hover { border-color: rgba(255,107,53,0.3); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+    .project-card:hover { border-color: rgba(37,99,235,0.2); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
     .project-thumb { height: 180px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
     .project-thumb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 40px; background: linear-gradient(transparent, var(--bg2)); }
     .project-body { padding: 24px; }
@@ -71,7 +71,7 @@
     @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
     /* Info box */
-    .info-box { background: var(--bg2); border: 1px solid rgba(255,107,53,0.2); border-left: 3px solid var(--accent); border-radius: var(--r); padding: 20px 24px; margin-bottom: 40px; }
+    .info-box { background: var(--bg2); border: 1px solid rgba(37,99,235,0.15); border-left: 3px solid var(--accent); border-radius: var(--r); padding: 20px 24px; margin-bottom: 40px; }
     .info-box p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
     .info-box strong { color: var(--txt); }
     /* Stats */
@@ -81,7 +81,7 @@
     .stat-label { color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
     @media (max-width: 768px) { .stats-row { grid-template-columns: 1fr 1fr; } }
     /* CTA */
-    .cta-box { background: linear-gradient(135deg, var(--bg2), rgba(255,107,53,0.06)); border: 1px solid var(--border); border-radius: 20px; padding: 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .cta-box { background: linear-gradient(135deg, var(--bg2), rgba(37,99,235,0.05)); border: 1px solid var(--border); border-radius: 20px; padding: 56px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .cta-box h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-weight: 800; margin-bottom: 8px; }
     .cta-box p { color: var(--muted); font-size: 0.95rem; }
     @media (max-width: 768px) { .cta-box { flex-direction: column; text-align: center; padding: 36px 24px; } }
@@ -89,25 +89,25 @@
     .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
     .btn-secondary { background: transparent; color: var(--txt); padding: 14px 28px; border-radius: var(--r); font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid var(--border); transition: all .2s; display: inline-block; }
     .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 48px 24px 24px; }
+    footer { background: #0f172a; border-top: none; padding: 56px 24px 24px; }
     .footer-inner { max-width: var(--max); margin: 0 auto; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 32px; }
-    .footer-logo { font-size: 1.1rem; font-weight: 800; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 10px; }
-    .footer-brand p { color: var(--muted); font-size: 0.875rem; line-height: 1.6; max-width: 260px; }
-    .footer-col h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; color: #fff; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+    .footer-brand p { color: #94a3b8; font-size: 0.875rem; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; margin-bottom: 14px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-    .footer-col a { color: var(--muted); text-decoration: none; font-size: 0.875rem; }
-    .footer-col a:hover { color: var(--accent); }
-    .footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    .footer-bottom p, .footer-bottom a { color: var(--muted); font-size: 0.8rem; text-decoration: none; }
-    .footer-bottom a:hover { color: var(--accent); }
+    .footer-col a { color: #94a3b8; text-decoration: none; font-size: 0.875rem; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p, .footer-bottom a { color: #64748b; font-size: 0.8rem; text-decoration: none; }
+    .footer-bottom a:hover { color: #94a3b8; }
     @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">RunByCode</a>
+    <a href="/" class="nav-logo">Run<span style="color:var(--accent)">By</span>Code</a>
     <ul class="nav-links" id="navLinks">
       <li class="dropdown" id="dropdown">
         <a href="#" id="dropdownToggle">Leistungen ▾</a>
@@ -229,19 +229,19 @@
     <div class="section-label">Was Kunden sagen</div>
     <h2 class="section-title">Direkte Rückmeldungen</h2>
     <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px;">
-      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px;">
+      <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 28px;">
         <div style="color: var(--accent); margin-bottom: 14px;">★★★★★</div>
         <p style="color: var(--txt); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-bottom: 16px;">"Unsere Seite war nach einem Update komplett down. RunByCode hatte es in zwei Stunden repariert — an einem Samstag. Und hat dabei das eigentliche Problem gleich mitgelöst."</p>
         <div style="font-weight: 600; font-size: 0.875rem;">M. Kaufmann</div>
         <div style="color: var(--muted); font-size: 0.8rem;">E-Commerce, München</div>
       </div>
-      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px;">
+      <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 28px;">
         <div style="color: var(--accent); margin-bottom: 14px;">★★★★★</div>
         <p style="color: var(--txt); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-bottom: 16px;">"Ich hatte drei andere Agenturen die gesagt haben, ich brauche eine neue Seite. RunByCode hat meine bestehende Seite übernommen und in drei Wochen auf ein neues Level gebracht. Kein Relaunch, viel günstiger."</p>
         <div style="font-weight: 600; font-size: 0.875rem;">S. Braun</div>
         <div style="color: var(--muted); font-size: 0.8rem;">Beraterin, Bayern</div>
       </div>
-      <div style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--r); padding: 28px;">
+      <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 28px;">
         <div style="color: var(--accent); margin-bottom: 14px;">★★★★★</div>
         <p style="color: var(--txt); font-size: 0.9rem; line-height: 1.7; font-style: italic; margin-bottom: 16px;">"Der Wartungsvertrag ist jeden Cent wert. Ich weiß, dass sich jemand darum kümmert — und wenn ich eine Frage habe, bekomme ich eine Antwort vom Entwickler, nicht von einem Support-Mitarbeiter."</p>
         <div style="font-weight: 600; font-size: 0.875rem;">T. Wagner</div>
@@ -271,7 +271,7 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="footer-logo">RunByCode</a>
+        <a href="/" class="footer-logo">Run<span style="color:#93c5fd">By</span>Code</a>
         <p>WordPress &amp; WooCommerce Agentur aus München. Direkter Kontakt, 24h Reaktionszeit.</p>
       </div>
       <div class="footer-col">
