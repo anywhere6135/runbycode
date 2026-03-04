@@ -130,6 +130,8 @@
     .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 24px; background: var(--bg2); }
     .trust-bar-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
     .trust-item { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.85rem; font-weight: 500; }
+    .client-logo { height: 26px; width: auto; max-width: 110px; filter: grayscale(1) opacity(0.45); transition: .2s; object-fit: contain; }
+    .client-logo:hover { filter: grayscale(0) opacity(0.9); }
     .trust-icon { color: var(--accent); font-size: 0.9rem; }
 
     /* SECTIONS */
@@ -194,6 +196,14 @@
     .team-card { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 40px; max-width: 720px; box-shadow: var(--shadow); }
     .team-avatar { width: 110px; height: 110px; border-radius: 16px; background: var(--bg2); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
     .team-avatar-initials { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .real-team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .real-team-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px 16px; text-align: center; transition: .25s; }
+    .real-team-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(15,23,42,0.08); transform: translateY(-4px); }
+    .real-team-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg2); margin: 0 auto 16px; display: block; }
+    .real-team-name { font-size: 1rem; font-weight: 700; color: var(--txt); margin-bottom: 4px; }
+    .real-team-role { font-size: 0.8rem; color: var(--muted); }
+    @media (max-width: 768px) { .real-team-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .real-team-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .real-team-avatar { width: 70px; height: 70px; } }
     .team-name { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; color: var(--txt); }
     .team-role { color: var(--accent); font-size: 0.85rem; font-weight: 600; margin-bottom: 14px; }
     .team-bio { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
@@ -271,7 +281,9 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">Run<span>By</span>Code</a>
+    <a href="/" class="nav-logo" style="display:flex;align-items:center;">
+      <img src="https://runbycode.de/wp-content/uploads/2022/11/Logo-Horizontal.png" alt="RunByCode" height="32" style="display:block;">
+    </a>
     <ul class="nav-links" id="navLinks">
       <li class="dropdown" id="dropdown">
         <a href="#" id="dropdownToggle">Leistungen ▾</a>
@@ -320,14 +332,17 @@
   </div>
 </section>
 
-<!-- TRUST BAR -->
+<!-- CLIENT LOGOS -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
-    <div class="trust-item"><span class="trust-icon">✓</span> WordPress Spezialisten</div>
-    <div class="trust-item"><span class="trust-icon">✓</span> WooCommerce Experten</div>
-    <div class="trust-item"><span class="trust-icon">✓</span> München</div>
-    <div class="trust-item"><span class="trust-icon">✓</span> Antwort innerhalb 24h</div>
-    <div class="trust-item"><span class="trust-icon">✓</span> Kein Relaunch nötig</div>
+    <span style="color:var(--muted);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;">Vertraut von:</span>
+    <img src="https://runbycode.de/wp-content/uploads/2024/09/prosieben_sat1_logo.webp" alt="ProSieben SAT.1" class="client-logo">
+    <img src="https://runbycode.de/wp-content/uploads/2022/11/tum.png" alt="TU München" class="client-logo">
+    <img src="https://runbycode.de/wp-content/uploads/2024/09/talbot_runhof_logo-e1726235930949.webp" alt="Talbot Runhof" class="client-logo">
+    <img src="https://runbycode.de/wp-content/uploads/2024/09/Logo_Welt_der_Wunder.svg" alt="Welt der Wunder" class="client-logo">
+    <img src="https://runbycode.de/wp-content/uploads/2022/11/Homelike.png" alt="Homelike" class="client-logo">
+    <img src="https://runbycode.de/wp-content/uploads/2022/11/pinkmelon.png" alt="Pinkmelon" class="client-logo">
+    <img src="https://runbycode.de/wp-content/uploads/2022/11/fuenfhoefe.png" alt="Fünf Höfe" class="client-logo">
   </div>
 </div>
 
@@ -470,25 +485,29 @@
 <!-- TEAM -->
 <section class="team">
   <div class="container">
-    <div class="section-label">Wer steckt dahinter</div>
-    <h2 class="section-title" style="margin-bottom:12px;">Ein Entwickler. Kein Konstrukt.</h2>
-    <p class="section-subtitle" style="margin-bottom:36px;">RunByCode ist kein Agenturnetzwerk. Hinter Ihrem Projekt steht ein erfahrener WordPress- und WooCommerce-Entwickler — und der bleibt Ihr Ansprechpartner von Anfang bis Ende.</p>
-    <div class="team-card">
-      <div class="team-avatar">
-        <span class="team-avatar-initials">RBC</span>
+    <div class="section-label">Das Team</div>
+    <h2 class="section-title" style="margin-bottom:12px;">Entwickler. Kein Konstrukt.</h2>
+    <p class="section-subtitle" style="margin-bottom:48px;">Kein Projektleiter, kein Account-Manager. Sie schreiben direkt mit den Entwicklern, die Ihren Code kennen — von Anfang bis Ende.</p>
+    <div class="real-team-grid">
+      <div class="real-team-card">
+        <img src="https://runbycode.de/wp-content/uploads/2024/09/martin-wordpress-programmierer-150x150.png" alt="Martin" class="real-team-avatar">
+        <div class="real-team-name">Martin</div>
+        <div class="real-team-role">WordPress-Entwickler</div>
       </div>
-      <div>
-        <div class="team-name">Der Entwickler hinter RunByCode</div>
-        <div class="team-role">WordPress &amp; WooCommerce Entwickler · Gründer</div>
-        <p class="team-bio">Seit über 10 Jahren entwickle ich WordPress- und WooCommerce-Projekte — von kleinen Unternehmensseiten bis zu WooCommerce-Shops mit sechsstelligen Monatsumsätzen. Die meisten Probleme entstehen nicht durch WordPress selbst, sondern durch schlecht gewartete Plugins, fehlende Backups und Entwickler die ein Problem lösen ohne das nächste zu sehen.<br><br>RunByCode ist meine Antwort auf das was mir bei anderen Agenturen gefehlt hat: ein direkter Ansprechpartner der Ihre Seite kennt und der bleibt.</p>
-        <div class="team-tags">
-          <span class="team-tag">PHP &amp; WordPress Core</span>
-          <span class="team-tag">WooCommerce</span>
-          <span class="team-tag">MySQL</span>
-          <span class="team-tag">REST API</span>
-          <span class="team-tag">Performance</span>
-          <span class="team-tag">München</span>
-        </div>
+      <div class="real-team-card">
+        <img src="https://runbycode.de/wp-content/uploads/2024/09/florian-wordpress-entwickler-150x150.webp" alt="Florian" class="real-team-avatar">
+        <div class="real-team-name">Florian</div>
+        <div class="real-team-role">WordPress &amp; WooCommerce</div>
+      </div>
+      <div class="real-team-card">
+        <img src="https://runbycode.de/wp-content/uploads/2024/09/robert-wocommerce-programmierer-150x150.png" alt="Robert" class="real-team-avatar">
+        <div class="real-team-name">Robert</div>
+        <div class="real-team-role">WooCommerce-Entwickler</div>
+      </div>
+      <div class="real-team-card">
+        <img src="https://runbycode.de/wp-content/uploads/2024/09/marie-wordpress-programmierer-150x150.png" alt="Marie" class="real-team-avatar">
+        <div class="real-team-name">Marie</div>
+        <div class="real-team-role">WordPress-Entwicklerin</div>
       </div>
     </div>
   </div>
