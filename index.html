@@ -143,6 +143,13 @@
 
     /* SECTIONS */
     section { padding: 100px 24px; }
+    /* Image break sections */
+    .img-break { padding: 0; overflow: hidden; line-height: 0; }
+    .img-break img { width: 100%; height: 500px; object-fit: cover; display: block; object-position: center 30%; transition: transform 0.6s ease; }
+    .img-break img:hover { transform: scale(1.02); }
+    .img-break-sm img { height: 340px; }
+    @media (max-width: 768px) { .img-break img { height: 280px; } .img-break-sm img { height: 200px; } }
+
     .container { max-width: var(--max); margin: 0 auto; }
     .section-label { color: var(--accent); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
     .section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; color: var(--txt); }
@@ -421,6 +428,11 @@
   </div>
 </section>
 
+
+<!-- Image Break: Team Collaboration -->
+<section class="img-break reveal">
+  <img src="/images/team-collaboration.jpg" alt="RunByCode Entwickler-Team bei der Arbeit in München" loading="lazy" width="1440" height="500">
+</section>
 <!-- PROZESS -->
 <section class="prozess">
   <div class="container">
@@ -517,6 +529,11 @@
   </div>
 </section>
 
+
+<!-- Image Break: Developer Workspace -->
+<section class="img-break img-break-sm reveal">
+  <img src="/images/dev-workspace.jpg" alt="Professioneller Entwickler-Arbeitsplatz" loading="lazy" width="1440" height="340">
+</section>
 <!-- TEAM -->
 <section class="team">
   <div class="container">
@@ -549,6 +566,11 @@
 </section>
 
 <!-- ANTI-RELAUNCH -->
+
+<!-- Image Break: München -->
+<section class="img-break reveal">
+  <img src="/images/munich-tech.jpg" alt="München — unsere Heimatstadt" loading="lazy" width="1440" height="500">
+</section>
 <section class="anti-relaunch">
   <div class="container">
     <div class="ar-box">
@@ -624,6 +646,11 @@
 </section>
 
 <!-- CONTACT -->
+
+<!-- Image Break: Results -->
+<section class="img-break img-break-sm reveal">
+  <img src="/images/wordpress-results.jpg" alt="WordPress Performance und Ergebnisse" loading="lazy" width="1440" height="340">
+</section>
 <section class="contact-section" style="background: var(--bg2);" id="kontakt">
   <div class="container">
     <div class="contact-inner">
