@@ -20,6 +20,10 @@
     .img-break { padding: 0; overflow: hidden; line-height: 0; margin: 0; }
     .img-break img { width: 100%; height: 500px; object-fit: cover; object-position: center 30%; display: block; }
     .img-break-sm img { height: 340px; }
+    .img-focus-team { object-position: center 35%; }
+    .img-focus-workspace { object-position: center 45%; }
+    .img-focus-city { object-position: center 55%; }
+    .img-focus-results { object-position: center 40%; }
     @media (max-width: 768px) {
       .img-break img { height: 240px; object-position: center 35%; }
       .img-break-sm img { height: 200px; }
@@ -239,7 +243,7 @@
 
 <!-- Image Break -->
 <section class="img-break">
-  <img src="/images/munich-tech.jpg" alt="RunByCode — München" loading="lazy" width="1440" height="500">
+  <img class="img-focus-city" src="/images/munich-tech.jpg" srcset="/images/munich-tech-480.jpg 480w, /images/munich-tech-768.jpg 768w, /images/munich-tech-1200.jpg 1200w, /images/munich-tech.jpg 1440w" alt="" loading="lazy" decoding="async" sizes="100vw" width="1440" height="900" role="presentation">
 </section>
 <!-- TESTIMONIALS -->
 <section style="background: var(--bg3); padding: 72px 24px;">

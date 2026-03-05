@@ -145,9 +145,13 @@
     section { padding: 100px 24px; }
     /* Image break sections */
     .img-break { padding: 0; overflow: hidden; line-height: 0; }
-    .img-break img { width: 100%; height: 500px; object-fit: cover; display: block; object-position: center 30%; transition: transform 0.6s ease; }
-    .img-break img:hover { transform: scale(1.02); }
+    .img-break img { width: 100%; height: 500px; object-fit: cover; display: block; object-position: center 30%; transition: transform 0.45s ease; }
+    .img-break img:hover { transform: scale(1.01); }
     .img-break-sm img { height: 340px; }
+    .img-focus-team { object-position: center 35%; }
+    .img-focus-workspace { object-position: center 45%; }
+    .img-focus-city { object-position: center 55%; }
+    .img-focus-results { object-position: center 40%; }
     @media (max-width: 768px) { .img-break img { height: 280px; } .img-break-sm img { height: 200px; } }
 
     .container { max-width: var(--max); margin: 0 auto; }
@@ -431,7 +435,7 @@
 
 <!-- Image Break: Team Collaboration -->
 <section class="img-break">
-  <img src="/images/team-collaboration.jpg" alt="RunByCode Entwickler-Team bei der Arbeit in München" loading="lazy" width="1440" height="500">
+  <img class="img-focus-team" src="/images/team-collaboration.jpg" srcset="/images/team-collaboration-480.jpg 480w, /images/team-collaboration-768.jpg 768w, /images/team-collaboration-1200.jpg 1200w, /images/team-collaboration.jpg 1440w" alt="" loading="lazy" decoding="async" sizes="100vw" width="1440" height="900" role="presentation">
 </section>
 <!-- PROZESS -->
 <section class="prozess">
@@ -530,10 +534,6 @@
 </section>
 
 
-<!-- Image Break: Developer Workspace -->
-<section class="img-break img-break-sm">
-  <img src="/images/dev-workspace.jpg" alt="Professioneller Entwickler-Arbeitsplatz" loading="lazy" width="1440" height="340">
-</section>
 <!-- TEAM -->
 <section class="team">
   <div class="container">
@@ -569,7 +569,7 @@
 
 <!-- Image Break: München -->
 <section class="img-break">
-  <img src="/images/munich-tech.jpg" alt="München — unsere Heimatstadt" loading="lazy" width="1440" height="500">
+  <img class="img-focus-city" src="/images/munich-tech.jpg" srcset="/images/munich-tech-480.jpg 480w, /images/munich-tech-768.jpg 768w, /images/munich-tech-1200.jpg 1200w, /images/munich-tech.jpg 1440w" alt="" loading="lazy" decoding="async" sizes="100vw" width="1440" height="900" role="presentation">
 </section>
 <section class="anti-relaunch">
   <div class="container">
@@ -647,10 +647,6 @@
 
 <!-- CONTACT -->
 
-<!-- Image Break: Results -->
-<section class="img-break img-break-sm">
-  <img src="/images/wordpress-results.jpg" alt="WordPress Performance und Ergebnisse" loading="lazy" width="1440" height="340">
-</section>
 <section class="contact-section" style="background: var(--bg2);" id="kontakt">
   <div class="container">
     <div class="contact-inner">
