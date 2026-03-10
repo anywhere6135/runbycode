@@ -466,6 +466,53 @@
     /* TRUST LOGO AREA LABEL */
     .enterprise-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);text-align:center;margin-bottom:4px;}
   </style>
+
+  <style>
+    /* Reviewer Delta Round */
+    .hero-visual{
+      background: linear-gradient(160deg,#0f172a 0%,#111827 100%) !important;
+      color:#e2e8f0;
+      border:1px solid rgba(255,255,255,.08) !important;
+      box-shadow:0 24px 50px rgba(15,23,42,.28) !important;
+    }
+    .hero-avatar-label{ color:#cbd5e1; }
+    .stats-grid .stat{
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .stats-grid .stat-label{ color:#cbd5e1; }
+    .stats-grid .stat-num{ color:#93c5fd; }
+
+    .kpi-strip{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+      margin:28px auto 0; max-width:1200px;
+    }
+    .kpi-strip .proof-card{background:#fff;border:1px solid #dbe3ef;border-radius:14px;padding:18px; border-top:1px solid #dbe3ef;}
+    .kpi-strip .proof-n{font-size:1.35rem;display:block;color:#0f172a;}
+    .kpi-strip .proof-l{font-size:.84rem;color:#64748b;}
+
+    .service-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 28px;}
+    .service-tab{border:1px solid #cbd5e1;background:#f8fafc;color:#0f172a;border-radius:999px;padding:10px 16px;font-weight:600;font-size:.85rem;cursor:default;}
+    .service-tab.active{background:#2563eb;color:#fff;border-color:#2563eb;}
+
+    .mini-case{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow-sm);}
+    .case-step{font-size:.8rem;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.6px;margin-top:8px;}
+    .case-step:first-child{margin-top:0;}
+    .mini-case p{font-size:.86rem;color:var(--muted);line-height:1.6;margin-top:4px;}
+
+    .trust-bar-inner{display:grid;grid-template-columns:repeat(7,minmax(90px,1fr));align-items:center;gap:18px;}
+    .client-logo{filter:grayscale(1) opacity(.55);max-height:24px;width:auto;justify-self:center;}
+    .client-logo:hover{filter:grayscale(0) opacity(.9);}
+
+    .sticky-mobile-cta{display:none;}
+    @media (max-width: 900px){.kpi-strip{grid-template-columns:repeat(2,1fr);} .trust-bar-inner{grid-template-columns:repeat(4,minmax(80px,1fr));}}
+    @media (max-width: 768px){
+      .sticky-mobile-cta{display:block;position:fixed;left:12px;right:12px;bottom:12px;z-index:1200;text-align:center;text-decoration:none;background:#e85d1e;color:#fff;padding:13px 16px;border-radius:999px;font-weight:700;box-shadow:0 10px 25px rgba(232,93,30,.35);} 
+      body{padding-bottom:72px;}
+      .trust-bar-inner{grid-template-columns:repeat(3,minmax(70px,1fr));gap:14px;}
+    }
+  </style>
+
 </head>
 <body>
 <div class="scroll-progress" id="scrollProg"></div>
@@ -488,7 +535,7 @@
         </div>
       </li>
       <li><a href="/projekte/">Projekte</a></li>
-      <li><a href="/kontakt/" class="nav-cta">Mit Florian sprechen →</a></li>
+      <li><a href="/kontakt/" class="nav-cta">Erstgespraech mit Florian</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
       <span></span><span></span><span></span>
@@ -509,7 +556,7 @@
       <p>Viele WordPress-Seiten laufen — aber sie arbeiten nicht. Keine Anfragen, Fehler die niemand erklärt, oder eine Agentur die tagelang schweigt. Das ist kein technisches Problem, das ist ein Dienstleister-Problem. Ich bin Florian, Entwickler hinter RunByCode — und ich löse genau das.</p>
       <p class="hero-highlight">95% der bestehenden WordPress-Seiten übernehme ich ohne Relaunch — ohne Neustart bei Null.</p>
       <div class="hero-btns">
-        <a href="/kontakt/" class="btn-primary">Mit Florian sprechen →</a>
+        <a href="/kontakt/" class="btn-primary">Erstgespraech mit Florian</a>
         <a href="#leistungen" class="btn-secondary">Leistungen ansehen</a>
       </div>
     </div>
@@ -557,7 +604,7 @@
 </div>
 
 
-<div class="proof-cards reveal-stagger">
+<div class="proof-cards kpi-strip reveal-stagger">
   <div class="proof-card">
     <span class="proof-n">2013</span>
     <span class="proof-l">Start mit WordPress-Projekten</span>
@@ -582,6 +629,11 @@
     <div class="section-label">Leistungen</div>
     <h2 class="section-title">WordPress und WooCommerce — sonst nichts.</h2>
     <p class="section-subtitle">WordPress und WooCommerce sind meine Werkzeuge. Das Ziel: eine Seite die Ihr Geschäft voranbringt — keine weitere Kostenstelle.</p>
+    <div class="service-tabs" aria-label="Leistungsgruppen">
+      <button class="service-tab active" type="button">Akut helfen</button>
+      <button class="service-tab" type="button">Weiterentwickeln</button>
+      <button class="service-tab" type="button">Laufend betreuen</button>
+    </div>
     <div class="services-grid reveal-stagger">
       <div class="service-card">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
@@ -825,6 +877,14 @@
         <div class="rating-count">3 Kundenstimmen · Durchschnitt 5/5</div>
       </div>
     </div>
+    <div class="mini-case reveal" style="margin:8px 0 28px;">
+      <div class="case-step">01 Ausgangslage</div>
+      <p>Shop langsam, Updates riskant, keine klare Zustaendigkeit.</p>
+      <div class="case-step">02 Umsetzung</div>
+      <p>Technik-Audit, Plugin-Bereinigung, Performance-Fix, Monitoring.</p>
+      <div class="case-step">03 Ergebnis</div>
+      <p>Ladezeit -43%, stabile Updates, klare Ansprechpartnerstruktur.</p>
+    </div>
     <div class="testi-grid reveal-stagger">
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
@@ -901,6 +961,8 @@
     </div>
   </div>
 </section>
+
+<a class="sticky-mobile-cta" href="/kontakt/">Kostenlose Ersteinschaetzung</a>
 
 <!-- FOOTER -->
 <footer>
