@@ -513,6 +513,28 @@
     }
   </style>
 
+
+  <style>
+    .panel-light{background:#f8fbff !important;}
+    .panel-dark{
+      background:linear-gradient(170deg,#0f172a,#111827) !important;
+      color:#e5e7eb;
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .panel-dark .section-title{color:#fff;}
+    .panel-dark .section-label{color:#93c5fd;}
+    .panel-dark .section-subtitle,
+    .panel-dark .why-text p,
+    .panel-dark .why-person-name span{color:#cbd5e1;}
+    .panel-dark .why-text h4,
+    .panel-dark .why-person-name strong{color:#fff;}
+    .panel-dark .why-check{background:rgba(147,197,253,.15);}
+    .panel-dark .why-check::after{color:#93c5fd;}
+    .panel-dark .why-compare-head{background:#1e293b;color:#cbd5e1;border-bottom-color:#334155;}
+    .panel-dark .why-compare-row{border-bottom-color:#334155;}
+  </style>
+
 </head>
 <body>
 <div class="scroll-progress" id="scrollProg"></div>
@@ -692,7 +714,7 @@
 </section>
 
 <!-- PROZESS -->
-<section class="prozess">
+<section class="prozess panel-light">
   <div class="container">
     <div class="section-label">Wie wir arbeiten</div>
     <h2 class="section-title">Vom Problem bis zur Lösung — ohne Umwege</h2>
@@ -723,7 +745,7 @@
 </section>
 
 <!-- WHY -->
-<section style="background: var(--bg2);">
+<section class="panel-dark">
   <div class="container">
     <div class="section-label">Warum RunByCode</div>
     <h2 class="section-title">Sie arbeiten direkt mit dem Entwickler. Punkt.</h2>
@@ -798,7 +820,7 @@
 
 
 <!-- TEAM -->
-<section class="team">
+<section class="team panel-light">
   <div class="container">
     <div class="section-label">Über Florian</div>
     <h2 class="section-title" style="margin-bottom:12px;">Direkter Ansprechpartner für WordPress und WooCommerce.</h2>
