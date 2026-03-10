@@ -133,6 +133,116 @@
     .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
     @media (max-width: 768px) { .hero { min-height: auto; padding: 80px 24px 60px !important; } .hero-inner { grid-template-columns: 1fr; } .hero-visual { background: transparent; border: none; box-shadow: none; padding: 0; } .hero-team-photo { display: none; } .stats-grid { margin-top: 24px !important; } }
 
+
+    /* ECONSOR-INSPIRED LAYER */
+    .hero-visual { position: relative; isolation: isolate; }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, rgba(37,99,235,0) 70%);
+      right: -70px;
+      top: -70px;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .proof-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 26px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .proof-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 16px 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .proof-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .proof-n { display:block; font-size:1.35rem; font-weight:800; color:var(--txt); letter-spacing:-0.5px; }
+    .proof-l { display:block; font-size:.78rem; color:var(--muted); margin-top:2px; }
+
+    .cta-band {
+      background: linear-gradient(90deg, #1b2041 0%, #11162f 100%);
+      color: #fff;
+      padding: 22px 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .cta-band-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-band h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.3px; }
+    .cta-band p { font-size: .86rem; color: #cbd5e1; margin-top: 2px; }
+    .cta-band a {
+      background: #e85d1e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-size: .85rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .2s, transform .2s;
+    }
+    .cta-band a:hover { background: #cf4f17; transform: translateY(-1px); }
+
+    .why-compare {
+      margin-top: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .why-compare-head {
+      background: var(--bg2);
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: .78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+    }
+    .why-compare-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 8px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: .8rem;
+      align-items: center;
+    }
+    .why-compare-row:last-child { border-bottom: none; }
+    .why-compare-row strong { color: var(--txt); }
+    .cmp-bad { color: #b91c1c; font-weight: 600; }
+    .cmp-good { color: #15803d; font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .proof-cards { grid-template-columns: 1fr 1fr; }
+      .why-compare-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 520px) {
+      .proof-cards { grid-template-columns: 1fr; }
+    }
+
     /* TRUST BAR */
     .trust-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 24px; background: var(--bg2); }
     .trust-bar-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
@@ -446,6 +556,26 @@
   <div class="trust-pill"><span class="tp-icon">&#10003;</span> Nur WordPress & WooCommerce</div>
 </div>
 
+
+<div class="proof-cards reveal-stagger">
+  <div class="proof-card">
+    <span class="proof-n">2013</span>
+    <span class="proof-l">Start mit WordPress-Projekten</span>
+  </div>
+  <div class="proof-card">
+    <span class="proof-n">50+</span>
+    <span class="proof-l">Projekte in Betreuung und Umsetzung</span>
+  </div>
+  <div class="proof-card">
+    <span class="proof-n">24h</span>
+    <span class="proof-l">Antwortzeit an Werktagen</span>
+  </div>
+  <div class="proof-card">
+    <span class="proof-n">0</span>
+    <span class="proof-l">Outsourcing im Kernprojekt</span>
+  </div>
+</div>
+
 <!-- LEISTUNGEN -->
 <section class="services" id="leistungen">
   <div class="container">
@@ -498,6 +628,17 @@
 <section class="img-break">
   <img class="img-focus-team" src="/images/team-collaboration.jpg" srcset="/images/team-collaboration-480.jpg 480w, /images/team-collaboration-768.jpg 768w, /images/team-collaboration-1200.jpg 1200w, /images/team-collaboration.jpg 1440w" alt="" loading="lazy" decoding="async" sizes="100vw" width="1440" height="900" role="presentation">
 </section>
+
+<section class="cta-band">
+  <div class="cta-band-inner">
+    <div>
+      <h3>Website laeuft, liefert aber nicht?</h3>
+      <p>Keine Standard-Angebote. Erst Problem verstehen, dann klare Loesung mit Aufwand und Prioritaet.</p>
+    </div>
+    <a href="/kontakt/">Einschaetzung anfragen</a>
+  </div>
+</section>
+
 <!-- PROZESS -->
 <section class="prozess">
   <div class="container">
@@ -589,6 +730,15 @@
             </div>
           </div>
         </div>
+        <div class="why-compare">
+          <div class="why-compare-head">Warum Kunden wechseln</div>
+          <div class="why-compare-row"><strong>Punkt</strong><span>Standard-Agentur</span><span>RunByCode</span></div>
+          <div class="why-compare-row"><strong>Ansprechpartner</strong><span class="cmp-bad">Mehrere Rollen</span><span class="cmp-good">Direkt mit Florian</span></div>
+          <div class="why-compare-row"><strong>Umsetzung</strong><span class="cmp-bad">Ticket-Queue</span><span class="cmp-good">Direkte Priorisierung</span></div>
+          <div class="why-compare-row"><strong>Technik-Entscheidung</strong><span class="cmp-bad">Oft Relaunch zuerst</span><span class="cmp-good">Bestand zuerst retten</span></div>
+          <div class="why-compare-row"><strong>Verantwortung</strong><span class="cmp-bad">Verteilt</span><span class="cmp-good">Eine klare Verantwortung</span></div>
+        </div>
+
       </div>
     </div>
   </div>
