@@ -377,21 +377,31 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* Import preview rows */
 .import-row {
+  padding: .65rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.import-row-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 0;
-  border-bottom: 1px solid var(--border);
+  gap: .5rem;
+  margin-bottom: .3rem;
 }
-.import-row .name { flex: 1; }
+.import-row .name {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  font-weight: 500;
+}
 .import-row .status {
-  font-size: .8rem;
+  font-size: .75rem;
   padding: .2rem .5rem;
   border-radius: 999px;
+  flex-shrink: 0;
 }
 .import-row .status.known { background: rgba(16, 185, 129, .15); color: var(--success); }
 .import-row .status.unknown { background: rgba(245, 158, 11, .15); color: var(--warning); }
-.import-row select { width: auto; padding: .3rem .5rem; }
+.import-row select { width: 100%; padding: .35rem .5rem; }
 
 /* Toasts */
 #toast-root {

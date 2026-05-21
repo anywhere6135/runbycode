@@ -735,16 +735,19 @@ function showImportPreview(grouped, exerciseStatus) {
     const row = document.createElement('div');
     row.className = 'import-row';
     if (entry.existing) {
-      row.innerHTML = `<span class="name"></span><span class="status known">Bekannt</span>`;
+      row.innerHTML = `
+        <div class="import-row-head">
+          <span class="name"></span>
+          <span class="status known">Bekannt</span>
+        </div>`;
       row.querySelector('.name').textContent = entry.name;
     } else {
       row.innerHTML = `
-        <div style="flex:1;min-width:0;">
-          <div class="name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
-          <div class="muted small">Mapping:</div>
+        <div class="import-row-head">
+          <span class="name"></span>
+          <span class="status unknown">Neu</span>
         </div>
         <select class="map-select"></select>
-        <span class="status unknown">Neu</span>
       `;
       row.querySelector('.name').textContent = entry.name;
       const select = row.querySelector('.map-select');
