@@ -2,6 +2,15 @@
 
 Lokale Fitness-Tracker-App. Keine Server, keine Accounts — alle Daten liegen im LocalStorage des Browsers.
 
+## Screenshots
+
+| | | |
+|---|---|---|
+| ![Start](screenshots/01-workout-empty.png) | ![Aktives Workout](screenshots/03-workout-rest-timer.png) | ![CSV-Import](screenshots/06-csv-import-preview.png) |
+| Startbildschirm | Aktives Workout + Ruhetimer | CSV-Import-Vorschau |
+| ![Verlauf](screenshots/07-history.png) | ![Workout-Detail](screenshots/08-workout-detail.png) | ![Übungen](screenshots/04-exercise-library.png) |
+| Verlauf nach Import | Workout-Detail | Übungs-Bibliothek |
+
 ## Features
 
 - **Workouts tracken**: Übungen hinzufügen, Sets mit Gewicht & Wiederholungen abhaken
