@@ -1,0 +1,18 @@
+Date,Workout Name,Duration,Exercise Name,Set Order,Weight,Reps,Distance,Seconds,Notes,Workout Notes,RPE
+"2024-01-15 10:30:00","Push Day","45m","Bench Press (Barbell)",1,80,8,,,,,
+"2024-01-15 10:30:00","Push Day","45m","Bench Press (Barbell)",2,80,8,,,,,
+"2024-01-15 10:30:00","Push Day","45m","Bench Press (Barbell)",3,85,6,,,,,8
+"2024-01-15 10:30:00","Push Day","45m","Incline Bench Press (Barbell)",1,60,10,,,,,
+"2024-01-15 10:30:00","Push Day","45m","Incline Bench Press (Barbell)",2,60,10,,,,,
+"2024-01-15 10:30:00","Push Day","45m","Cable Crossover Custom",1,15,12,,,"Langsam, kontrollierter Negativ",,
+"2024-01-15 10:30:00","Push Day","45m","Cable Crossover Custom",2,15,12,,,,,
+"2024-01-17 18:00:00","Pull Day","50m","Lat Pulldown (Cable)",1,60,10,,,,,
+"2024-01-17 18:00:00","Pull Day","50m","Lat Pulldown (Cable)",2,65,8,,,,,
+"2024-01-17 18:00:00","Pull Day","50m","Seated Row (Cable)",1,55,10,,,,,
+"2024-01-17 18:00:00","Pull Day","50m","Hammer Strength Row Machine",1,70,10,,,,,
+"2024-01-17 18:00:00","Pull Day","50m","Hammer Strength Row Machine",2,70,10,,,,,
+"2024-01-19 09:00:00","Leg Day","1h 5m","Squat (Barbell)",1,100,5,,,,,
+"2024-01-19 09:00:00","Leg Day","1h 5m","Squat (Barbell)",2,100,5,,,,,
+"2024-01-19 09:00:00","Leg Day","1h 5m","Squat (Barbell)",3,100,5,,,,8
+"2024-01-19 09:00:00","Leg Day","1h 5m","Leg Press",1,180,10,,,,,
+"2024-01-19 09:00:00","Leg Day","1h 5m","Leg Extension",1,50,12,,,,,

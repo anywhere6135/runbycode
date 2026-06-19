@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <title>Fitness Tracker</title>
+  <link rel="stylesheet" href="./app.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='20' font-size='20'%3E%F0%9F%8F%8B%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<main id="app">
+
+  <!-- ============ WORKOUT TAB ============ -->
+  <section class="tab" data-tab="workout">
+    <header class="topbar">
+      <h1 id="workout-title">Workout</h1>
+      <div class="topbar-actions">
+        <button id="finish-workout-btn" class="btn btn-primary hidden">Beenden</button>
+        <button id="cancel-workout-btn" class="btn btn-ghost hidden" title="Workout abbrechen">✕</button>
+      </div>
+    </header>
+
+    <div id="workout-empty" class="empty-state">
+      <div class="empty-icon">🏋️</div>
+      <h2>Bereit zum Training?</h2>
+      <p>Starte ein leeres Workout oder lege direkt los.</p>
+      <button id="start-workout-btn" class="btn btn-primary btn-large">Workout starten</button>
+    </div>
+
+    <div id="workout-active" class="hidden">
+      <div class="workout-meta">
+        <input id="workout-name-input" type="text" placeholder="Workout-Name (optional)" />
+        <div id="workout-duration" class="muted small">00:00</div>
+      </div>
+
+      <div id="exercise-list"></div>
+
+      <button id="add-exercise-btn" class="btn btn-secondary btn-block">+ Übung hinzufügen</button>
+
+      <textarea id="workout-notes-input" placeholder="Notizen zum Workout..." rows="2"></textarea>
+    </div>
+  </section>
+
+  <!-- ============ HISTORY TAB ============ -->
+  <section class="tab hidden" data-tab="history">
+    <header class="topbar">
+      <h1>Verlauf</h1>
+      <div class="topbar-actions">
+        <button id="export-csv-btn" class="btn btn-ghost" title="Als Strong-CSV exportieren">↓ Export</button>
+      </div>
+    </header>
+    <div id="history-list"></div>
+    <div id="history-empty" class="empty-state hidden">
+      <div class="empty-icon">📜</div>
+      <p>Noch keine Workouts aufgezeichnet.</p>
+    </div>
+  </section>
+
+  <!-- ============ EXERCISES TAB ============ -->
+  <section class="tab hidden" data-tab="exercises">
+    <header class="topbar">
+      <h1>Übungen</h1>
+      <div class="topbar-actions">
+        <button id="new-exercise-btn" class="btn btn-primary">+ Neu</button>
+      </div>
+    </header>
+    <input id="exercise-search" type="search" placeholder="Übung suchen..." />
+    <div id="exercise-library"></div>
+  </section>
+
+  <!-- ============ SETTINGS TAB ============ -->
+  <section class="tab hidden" data-tab="settings">
+    <header class="topbar"><h1>Einstellungen</h1></header>
+
+    <div class="settings-group">
+      <h3>Import</h3>
+      <p class="muted small">Strong-App CSV-Format (Date, Workout Name, Exercise Name, Set Order, Weight, Reps, ...).</p>
+      <label class="btn btn-secondary btn-block">
+        CSV-Datei wählen
+        <input id="csv-file-input" type="file" accept=".csv,text/csv" hidden />
+      </label>
+      <button id="import-paste-btn" class="btn btn-ghost btn-block">CSV-Text einfügen</button>
+    </div>
+
+    <div class="settings-group">
+      <h3>Standard-Ruhezeit</h3>
+      <div class="row">
+        <input id="default-rest-input" type="number" min="0" step="5" />
+        <span class="muted">Sekunden</span>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <h3>Einheit</h3>
+      <div class="row">
+        <label><input type="radio" name="unit" value="kg" /> kg</label>
+        <label><input type="radio" name="unit" value="lb" /> lb</label>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <h3>Daten</h3>
+      <button id="export-json-btn" class="btn btn-ghost btn-block">Alle Daten als JSON exportieren</button>
+      <label class="btn btn-ghost btn-block">
+        JSON-Backup importieren
+        <input id="json-file-input" type="file" accept=".json,application/json" hidden />
+      </label>
+      <button id="wipe-data-btn" class="btn btn-danger btn-block">Alle Daten löschen</button>
+    </div>
+
+    <p class="muted small center">v1.0</p>
+  </section>
+
+</main>
+
+<!-- ============ TAB BAR ============ -->
+<nav id="tabbar">
+  <button data-target="workout" class="active">
+    <span class="ico">🏋️</span><span>Workout</span>
+  </button>
+  <button data-target="history">
+    <span class="ico">📜</span><span>Verlauf</span>
+  </button>
+  <button data-target="exercises">
+    <span class="ico">📋</span><span>Übungen</span>
+  </button>
+  <button data-target="settings">
+    <span class="ico">⚙️</span><span>Settings</span>
+  </button>
+</nav>
+
+<!-- ============ REST TIMER OVERLAY ============ -->
+<div id="rest-timer" class="hidden">
+  <div class="rest-bar"><div id="rest-bar-fill"></div></div>
+  <div class="rest-content">
+    <span id="rest-label">Pause</span>
+    <span id="rest-countdown">90</span>
+    <button id="rest-minus" class="btn btn-ghost small">-15</button>
+    <button id="rest-plus" class="btn btn-ghost small">+15</button>
+    <button id="rest-skip" class="btn btn-primary small">Skip</button>
+  </div>
+</div>
+
+<!-- ============ MODAL CONTAINER ============ -->
+<div id="modal-root"></div>
+
+<!-- ============ TOAST CONTAINER ============ -->
+<div id="toast-root"></div>
+
+<!-- ============ TEMPLATES ============ -->
+<template id="tpl-exercise-block">
+  <div class="exercise-block" data-exercise-id="">
+    <div class="exercise-block-head">
+      <div>
+        <h3 class="exercise-block-title"></h3>
+        <span class="muted small exercise-block-cat"></span>
+      </div>
+      <button class="btn btn-ghost icon-btn exercise-menu-btn" title="Menü">⋯</button>
+    </div>
+    <table class="set-table">
+      <thead>
+        <tr>
+          <th>Set</th>
+          <th>Vorherige</th>
+          <th>kg</th>
+          <th>Wdh</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="set-rows"></tbody>
+    </table>
+    <button class="btn btn-ghost btn-block add-set-btn">+ Set hinzufügen</button>
+  </div>
+</template>
+
+<template id="tpl-set-row">
+  <tr class="set-row">
+    <td class="set-index"></td>
+    <td class="set-prev muted small"></td>
+    <td><input class="set-weight" type="number" inputmode="decimal" step="0.5" placeholder="0" /></td>
+    <td><input class="set-reps" type="number" inputmode="numeric" step="1" placeholder="0" /></td>
+    <td><button class="set-done" title="Set abhaken">○</button></td>
+  </tr>
+</template>
+
+<script src="./app.js"></script>
+</body>
+</html>
